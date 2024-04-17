@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.heading{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container{
+    /* width: 800px;
+    height: 800px; */
+    margin: 150px auto;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.gridStyle{
+    border: 1px solid black;
+    /* width: 48px;
+    height: 48px; */
+}
