@@ -12,15 +12,47 @@ const selectColor = document.querySelector('#select-color');
 const selectColorBtn = document.querySelector('#select-color-btn');
 
 selectColorBtn.addEventListener('click',()=>{
+    isRandomColor = false;
+
     selectColor.click();
 })
 
 //Erase button
 const eraseBtn = document.querySelector('#erase-btn');
 eraseBtn.addEventListener('click',()=>{
+    isRandomColor = false;
+
     selectColor.value = '#ffffff';
 });
 
+//Select Random Colors
+const randomColorBtn = document.querySelector('#randomcolor-btn');
+let isRandomColor = false
+randomColorBtn.addEventListener('click',()=>{
+    isRandomColor = !isRandomColor;
+});
+
+function getRandomColor(){
+    return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+}
+
+//Reset the board
+const resetBtn = document.querySelector('#reset-btn');
+resetBtn.addEventListener('click',()=>{
+    document.querySelectorAll('.gridStyle').forEach((gridDiv)=>{
+        gridDiv.style.backgroundColor = '#ffffff';
+    });
+});
+
+//Default color
+const defaultColorBtn = document.querySelector('#defaultcolor-btn');
+defaultColorBtn.addEventListener('click',()=>{
+    isRandomColor = false;
+
+    selectColor.value = '#000000';
+})
+
+//Create the grids
 function createGrid(size){
 
     container.innerHTML = '';
@@ -50,7 +82,12 @@ function createGrid(size){
 
 function sketch(){
     if(isDrawing){
-        this.style.backgroundColor = selectColor.value;
+        //if random color is selected thn draw those, else selected sketch color
+        if(isRandomColor){
+            this.style.backgroundColor = getRandomColor();
+        }else{
+            this.style.backgroundColor = selectColor.value;
+        }
     }
 }
 
