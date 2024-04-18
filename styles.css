@@ -17,6 +17,7 @@
     margin: 100px auto;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 
 }
 
@@ -30,6 +31,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+    
 }
 
 .size{
@@ -39,4 +41,26 @@
 
 .grid-input{
     width: 120px;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    gap: 10px;
+    margin-top: 45px;
+    margin-left: 33%;
+}
+
+#select-color{
+    display: none;
+}
+
+.buttons{
+    padding: 10px;
+    font-size: larger;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+    cursor: pointer;
 }

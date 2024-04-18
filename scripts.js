@@ -7,6 +7,20 @@ const pixelSize = document.querySelector('#size');
 
 let isDrawing = false;
 
+//Select color
+const selectColor = document.querySelector('#select-color');
+const selectColorBtn = document.querySelector('#select-color-btn');
+
+selectColorBtn.addEventListener('click',()=>{
+    selectColor.click();
+})
+
+//Erase button
+const eraseBtn = document.querySelector('#erase-btn');
+eraseBtn.addEventListener('click',()=>{
+    selectColor.value = '#ffffff';
+});
+
 function createGrid(size){
 
     container.innerHTML = '';
@@ -36,7 +50,7 @@ function createGrid(size){
 
 function sketch(){
     if(isDrawing){
-        this.style.backgroundColor = 'black';
+        this.style.backgroundColor = selectColor.value;
     }
 }
 
